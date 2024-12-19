@@ -1,0 +1,26 @@
+services:
+
+  mageai:
+    image: mageai
+    command: mage start mage_project
+    stop_grace_period: 60s
+    restart: always
+    build:
+      context: .
+    environment:
+      DEBUG: 1
+      ENV: dev
+      MAGE_PUBLIC_HOST: http://localhost:6789
+      USER_CODE_PATH: /home/src/mage_project
+      MAGE_DATABASE_CONNECTION_URL: null
+    ports:
+      - 6789:6789
+    volumes:
+      - mageai-data:/home/src
+
+networks:
+  default:
+    name: mageai
+
+volumes:
+  mageai-data: {}
