@@ -1,1 +1,3 @@
-# mage_ai_docker
+# Mage AI Docker
+
+Mage AI deployment using Docker
